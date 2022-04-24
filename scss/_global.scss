@@ -3,29 +3,27 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+// Cairo font from google fonts
+// license OFL
 @font-face {
-  font-family: 'Cairo';
-  src: url(../fonts/Cairo/Cairo-Regular.ttf);
+    font-family: 'Cairo';
+    src: url(../fonts/Cairo/Cairo-Regular.ttf);
 }
-
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
-
 a {
   text-decoration: none;
 }
-
 button {
   border: none;
   outline: none;
 }
-
 li {
   list-style: none;
 }
 
+// Container Class
 .container {
   padding: 0 15px;
   margin: 0 auto;
@@ -36,29 +34,18 @@ li {
     width: 750px;
   }
 }
-
 @media screen and (min-width: 992px) {
   .container {
     width: 970px;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .container {
     width: 1170px;
   }
 }
-
 @media screen and (min-width: 1400px) {
   .container {
     width: 1370px;
   }
 }
-
-body {
-  background-color: #fff;
-  color: #000;
-  font-size: 16px;
-  font-family: 'Cairo', sans-serif;
-}
-/*# sourceMappingURL=main.css.map */

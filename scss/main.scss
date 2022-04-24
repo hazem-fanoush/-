@@ -1,0 +1,24 @@
+@import 'global';
+
+
+// main colors
+$primary-color: #FF4C00;
+$second-color: #333;
+$background-color: #fff;
+
+// Function to set text color
+@function textColor($bg-color) {
+    @if lightness($bg-color) > 50 {
+        @return #000;
+    } @else {
+        @return #fff;
+    }
+}
+
+
+body {
+    background-color: $background-color;
+    color: textColor($background-color);
+    font-size: 16px;
+    font-family: 'Cairo', sans-serif;
+}
