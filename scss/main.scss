@@ -30,16 +30,17 @@ body {
 
 // Start of header and navbar styles
 header.page-header {
-    background-color: rgba($second-color, 0.9);
+    background-color: transparent;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
+    z-index: 999;
     @include main-transition();
 
     // a class will be added by javascript
     &.active {
-        border-bottom: 2px solid $primary-color;
+        background-color: rgba($second-color, 0.9);
     }
     .navbar {
         height: 75px;
@@ -68,6 +69,7 @@ header.page-header {
             // a class will be added by javascript
             &.show {
                 height: 242px;
+                border-bottom: 2px solid $primary-color;
             }
             @include media-m-sm {
                 & {
@@ -77,8 +79,7 @@ header.page-header {
                     width: 100%;
                     background-color: rgba($second-color, 0.9);
                     text-align: center;
-                    border-bottom: 2px solid $primary-color;
-                    height: 2px;
+                    height: 0px;
                     overflow: hidden;
                     .nav-item {
                         display: block;
@@ -125,10 +126,106 @@ header.page-header {
         }
         
     }
-    @include media-m-sm {
-        // delete border bottom on small screen [767px]
-        &.active {
-            border-bottom: none;
+}
+
+// Start of landing styles
+.landing {
+    padding-top: 75px;
+    background: {
+        image: url(../images/bg_slilder-1.jpg);
+        repeat: no-repeat;
+        size: cover;
+        position: center center;
+        attachment: fixed; 
+    }
+    .landing-wrapper {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        > .landing-box {
+            width: 50%;
+           > h1 {
+                font-size: 2.5rem;
+                color: #fff;
+            }
+           > h2 {
+               font-size: 1.5rem;
+               color: $primary-color;
+               margin: 30px 0px;
+           }
+           > p {
+               color: #fff;
+           }
+           > a {
+               display: inline-block;
+               color: #fff;
+               font-size: 1.5rem;
+               padding: 10px 30px 10px 120px;
+               background-color: $primary-color;
+               border-radius: 1rem;
+               margin-top: 50px;
+               position: relative;
+               z-index: 3;
+               overflow: hidden;
+               @include main-transition();
+               &::after {
+                   content: '\f0ed';
+                   font-family: 'Font Awesome 6 Free';
+                   font-weight: 900;
+                   color: $second-color;
+                   position: absolute;
+                   left: 0px;
+                   top: 0;
+                   height: 100%;
+                   width: 65px;
+                   border-radius: 1rem;
+                   display: flex;
+                   align-items: center;
+                   justify-content: center;
+                   background-color: #fff;
+               }
+               &::before {
+                   content: "";
+                   position: absolute;
+                   right: 0;
+                   top: 0;
+                   width: 0%;
+                   height: 100%;
+                   background-color: #fff;
+                   border-radius: 1rem;
+                   z-index: -1;
+                   @include main-transition();
+               }
+               &:hover {
+                   color: $primary-color;
+                   &::before {
+                       width: 100%;
+                   }
+               }
+           }
+        }
+        .landing-image {
+            position: relative;
+            width: 50%;
+            > img {
+                width: 100%;
+            }
+        }
+        @include media-m-sm {
+            & {
+                flex-direction: column;
+                div.landing-image, div.landing-box {
+                    width: 100%;
+                }
+                div.landing-box {
+                    margin: 40px 0;
+                    text-align: center;
+                }
+                div.landing-image {
+                    display: flex;
+                    align-items: flex-end;
+                }
+            }
         }
     }
 }
