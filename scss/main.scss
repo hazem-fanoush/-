@@ -1,5 +1,6 @@
 @import 'global';
 @import 'query';
+@import 'animations';
 
 
 // main colors
@@ -10,7 +11,7 @@ $background-color: #fff;
 // Function to set text color
 @function textColor($bg-color) {
     @if lightness($bg-color) > 50 {
-        @return #000;
+        @return #333;
     } @else {
         @return #fff;
     }
@@ -19,6 +20,44 @@ $background-color: #fff;
 @mixin main-transition {
     transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
+// Multi use classes
+.section-heading {
+    margin: 50px 0px;
+    opacity: 0;
+    // active class animations added on scroll to elements 
+    &.active {
+        opacity: 1;
+        .section-title, .section-description {
+            @include fade-in
+        }
+    }
+  }
+  .section-title {
+    width: fit-content;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    > span {
+      color: $primary-color;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 1px;
+        width: 60%;
+        background-color: textColor($background-color);
+    }
+  }
+  .section-description {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    color: textColor($background-color);
+  }
 
 body {
     background-color: $background-color;
@@ -159,7 +198,7 @@ header.page-header {
            > a {
                display: inline-block;
                color: #fff;
-               font-size: 1.5rem;
+               font-size: 1.3rem;
                padding: 10px 30px 10px 120px;
                background-color: $primary-color;
                border-radius: 1rem;
@@ -168,6 +207,7 @@ header.page-header {
                z-index: 3;
                overflow: hidden;
                @include main-transition();
+               // the icon on the left of download button
                &::after {
                    content: '\f0ed';
                    font-family: 'Font Awesome 6 Free';
@@ -227,5 +267,34 @@ header.page-header {
                 }
             }
         }
+        // active class animations added on scroll to elements 
+        &.active {
+            .landing-box {
+                > h1,h2,p,a {
+                    @include fade-in;
+                }
+            }
+            .landing-image {
+                @include fade-in-left;
+            }
+        }
     }
+}
+
+// Start of How it works section styles
+
+
+// Start of loading styles 
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: $background-color;
+    z-index: 1000;
 }

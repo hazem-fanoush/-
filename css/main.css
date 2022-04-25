@@ -55,9 +55,63 @@ li {
   }
 }
 
+.section-heading {
+  margin: 50px 0px;
+  opacity: 0;
+}
+
+.section-heading.active {
+  opacity: 1;
+}
+
+.section-heading.active .section-title, .section-heading.active .section-description {
+  animation: fade-in 0.6s linear forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.section-title {
+  width: fit-content;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.section-title > span {
+  color: #FF4C00;
+}
+
+.section-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  width: 60%;
+  background-color: #333;
+}
+
+.section-description {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  color: #333;
+}
+
 body {
   background-color: #fff;
-  color: #000;
+  color: #333;
   font-size: 16px;
   font-family: 'Cairo', sans-serif;
   height: 3000px;
@@ -209,7 +263,7 @@ header.page-header .navbar .nav-btn.rotate .line:nth-of-type(3) {
 .landing .landing-wrapper > .landing-box > a {
   display: inline-block;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   padding: 10px 30px 10px 120px;
   background-color: #FF4C00;
   border-radius: 1rem;
@@ -282,5 +336,48 @@ header.page-header .navbar .nav-btn.rotate .line:nth-of-type(3) {
     display: flex;
     align-items: flex-end;
   }
+}
+
+.landing .landing-wrapper.active .landing-box > h1, .landing .landing-wrapper.active .landing-box h2, .landing .landing-wrapper.active .landing-box p, .landing .landing-wrapper.active .landing-box a {
+  animation: fade-in 0.6s linear forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.landing .landing-wrapper.active .landing-image {
+  animation: fade-in-left 0.6s linear forwards;
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  z-index: 1000;
 }
 /*# sourceMappingURL=main.css.map */
