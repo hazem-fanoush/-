@@ -24,6 +24,7 @@ $background-color: #fff;
 .section-heading {
     margin: 50px 0px;
     opacity: 0;
+    color: textColor($background-color);
     // active class animations added on scroll to elements 
     &.active {
         opacity: 1;
@@ -282,6 +283,66 @@ header.page-header {
 }
 
 // Start of How it works section styles
+
+.features-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    margin-top: 100px;
+    > div {
+        width: 100%;
+        .feature {
+            display: flex;
+            flex-direction: row-reverse;
+            column-gap: 20px;
+            margin-bottom: 50px;
+            color: textColor($background-color);
+            .feature-content {
+                > h3 {
+                    margin-bottom: 20px;
+                }
+                > p {
+                    font-size: 14px;
+                }
+            }
+            .feature-icon {
+                color: $primary-color;
+                width: fit-content;
+            }
+        }
+
+        &.features-img {
+            > img {
+                width: 100%;
+                vertical-align: middle;
+            }
+        }
+    }
+    
+    @include media-m-sm {
+        & {
+            grid-template-columns: 1fr;
+            >  div {
+                margin-bottom: 50px;
+            }
+            div.feature {
+                margin-bottom: 40px;
+                column-gap: 40px;
+                .feature-content {
+                    width: 90%;
+                }
+                .feature-icon {
+                    width: 10%;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            .features-left {
+                direction: ltr;
+            }
+        }
+    }
+}
 
 
 // Start of loading styles 
