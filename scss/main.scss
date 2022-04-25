@@ -36,6 +36,8 @@ header.page-header {
     top: 0;
     width: 100%;
     @include main-transition();
+
+    // a class will be added by javascript
     &.active {
         border-bottom: 2px solid $primary-color;
     }
@@ -63,6 +65,7 @@ header.page-header {
                     }
                 }
             }
+            // a class will be added by javascript
             &.show {
                 height: 242px;
             }
@@ -99,6 +102,7 @@ header.page-header {
                     margin-bottom: 5px;
                 }
             }
+            // a class will be added by javascript
             &.rotate {
                 transform: rotate(180deg);
                 
@@ -122,6 +126,7 @@ header.page-header {
         
     }
     @include media-m-sm {
+        // delete border bottom on small screen [767px]
         &.active {
             border-bottom: none;
         }
