@@ -1,4 +1,5 @@
 @import 'global';
+@import 'query';
 
 
 // main colors
@@ -14,11 +15,115 @@ $background-color: #fff;
         @return #fff;
     }
 }
-
+// Main Transition 
+@mixin main-transition {
+    transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
 
 body {
     background-color: $background-color;
     color: textColor($background-color);
     font-size: 16px;
     font-family: 'Cairo', sans-serif;
+    height: 3000px;
+}
+
+// Start of header and navbar styles
+header.page-header {
+    background-color: rgba($second-color, 0.9);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    @include main-transition();
+    &.active {
+        border-bottom: 2px solid $primary-color;
+    }
+    .navbar {
+        height: 75px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include main-transition();
+        .brand {
+            font-size: 2rem;
+            color: #fff;
+        }
+        .nav-list {
+            @include main-transition();
+            .nav-item {
+                display: inline-block;
+                > a {
+                    padding: 12px 18px;
+                    border-radius: 0.8rem;
+                    color: #fff;
+                    @include main-transition();
+                    &:hover {
+                        background-color: $primary-color;
+                    }
+                }
+            }
+            &.show {
+                height: 242px;
+            }
+            @include media-m-sm {
+                & {
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    width: 100%;
+                    background-color: rgba($second-color, 0.9);
+                    text-align: center;
+                    border-bottom: 2px solid $primary-color;
+                    height: 2px;
+                    overflow: hidden;
+                    .nav-item {
+                        display: block;
+                        margin-top: 15px;
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+        .nav-btn {
+            display: none;
+            cursor: pointer;
+            @include main-transition();
+            .line {
+                display: block;
+                width: 28px;
+                height: 3px;
+                background-color: #fff;
+                @include main-transition();
+                &:not(:last-of-type) {
+                    margin-bottom: 5px;
+                }
+            }
+            &.rotate {
+                transform: rotate(180deg);
+                
+                // Animations for lines
+                .line:nth-of-type(1) {
+                    transform: translateY(8px) rotate(45deg);
+                }
+                .line:nth-of-type(2) {
+                    opacity: 0;
+                }
+                .line:nth-of-type(3) {
+                    transform: translateY(-8px) rotate(-45deg);
+                }
+            }
+            @include media-m-sm {
+                & {
+                    display: block;
+                }
+            }
+        }
+        
+    }
+    @include media-m-sm {
+        &.active {
+            border-bottom: none;
+        }
+    }
 }
