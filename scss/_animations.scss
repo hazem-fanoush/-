@@ -1,65 +1,12 @@
-@mixin jump-effect {
-  animation-name: jump-effect;
-  animation-duration: 0.6s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  @keyframes jump-effect {
-    20%,
-    40% {
-      transform: scale(0.8);
-    }
-    60% {
-      transform: scale(1);
-    }
-    80% {
-      transform: scale(0.8);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-}
-
-@mixin fade-in-right {
-  animation: fade-in-right 1s ease-in-out forwards;
-
-  @keyframes fade-in-right {
-    0% {
-      opacity: 0;
-      transform: translateX(-200px);
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-}
-
-@mixin fade-in-left {
-  animation: fade-in-left 1s ease-in-out forwards;
-
-  @keyframes fade-in-left {
-    0% {
-      opacity: 0;
-      transform: translateX(200px);
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-}
 
 @mixin fade-in {
-  animation: fade-in 1s linear forwards;
+  animation: fade-in 0.5s ease-out;
 
   @keyframes fade-in {
     0% {
-      transform: scale(0);
       opacity: 0;
     }
     100% {
-      transform: scale(1);
       opacity: 1;
     }
   }

@@ -22,17 +22,12 @@ $background-color: #fff;
 }
 // Multi use classes
 // for sections heading & title 
+.section {
+    margin: 100px 0px;
+}
 .section-heading {
     margin: 50px 0px;
-    opacity: 0;
     color: textColor($background-color);
-    // active class animations added on scroll to elements 
-    &.active {
-        opacity: 1;
-        .section-title, .section-description {
-            @include fade-in
-        }
-    }
   }
   .section-title {
     width: fit-content;
@@ -272,17 +267,6 @@ header.page-header {
                 }
             }
         }
-        // active class animations added on scroll to elements 
-        &.active {
-            .landing-box {
-                > h1,h2,p,a {
-                    @include fade-in;
-                }
-            }
-            .landing-image {
-                @include fade-in-left;
-            }
-        }
     }
 }
 
@@ -301,7 +285,6 @@ header.page-header {
             column-gap: 20px;
             margin-bottom: 50px;
             color: textColor($background-color);
-            opacity: 0;
             .feature-content {
                 > h3 {
                     margin-bottom: 20px;
@@ -314,18 +297,6 @@ header.page-header {
                 color: $primary-color;
                 width: fit-content;
             }
-        }
-        &.features-right {
-            div.feature.active {
-                @include fade-in-left
-            }
-
-        }
-        &.features-left {
-            div.feature.active {
-                @include fade-in-right
-            }
-            
         }
 
         &.features-img {
@@ -359,6 +330,58 @@ header.page-header {
             }
         }
     }    
+}
+
+
+// STart of screen-shots styles
+
+.screen-shots-slider {
+    width: 33.333%;
+    margin: 0 auto;
+    position: relative;
+    .slide {
+        width: 100%;
+        display: none;
+        > img {
+            width: 100%;
+        }
+        &.current {
+            display: block;
+            @include fade-in;
+        }
+    }
+    .dots {
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .dot {
+            display: inline-block;
+            width: 12.5px;
+            height: 12.5px;
+            border-radius: 50%;
+            background-color: $second-color;
+            margin: 0 2.5px;
+            cursor: pointer;
+            &.current-dot {
+                background-color: $primary-color;
+            }
+            &:hover {
+                background-color: $primary-color;
+            }
+        }
+    }
+    @include media-m-md {
+        & {
+            width: 50%;
+        }
+    }
+    @include media-m-sm {
+        & {
+            width: 80%;
+        }
+    }
 }
 
 

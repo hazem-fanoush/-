@@ -28,35 +28,22 @@ window.addEventListener("scroll", () => {
   }
 });
 
+// Screen shots slide show
 
-function scrollTrigger(selector, options = {}) {
-  const elements = Array.from(document.querySelectorAll(selector));
+const slidesContainer = document.querySelector(".screen-shots-slider"),
+  slides = Array.from(document.querySelectorAll(".slide")),
+  dots = Array.from(document.querySelectorAll(".dot"));
 
-  elements.forEach((el) => {
-    addObserver(el, options);
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    const currentSlide = document.querySelector(".current"),
+        currentDot = document.querySelector('.current-dot');
+    // rmove current classc
+    currentSlide.classList.remove("current");
+    currentDot.classList.remove("current-dot");
+    // add current class
+    slides[index].classList.add('current');
+    dots[index].classList.add('current-dot');
+
   });
-}
-
-function addObserver(el, options) {
-  let observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-
-        observer.unobserve(entry.target);
-      }
-    });
-  }, options);
-
-  observer.observe(el);
-}
-
-scrollTrigger('.landing-wrapper', {
-    rootMargin: '-200px',
-})
-scrollTrigger('.section-heading', {
-    rootMargin: '-200px',
-})
-scrollTrigger('.feature', {
-    rootMargin: '-200px',
-})
+});
