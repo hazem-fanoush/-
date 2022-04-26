@@ -21,7 +21,7 @@
 }
 
 @mixin fade-in-right {
-  animation: fade-in-right 0.6s linear forwards;
+  animation: fade-in-right 1s ease-in-out forwards;
 
   @keyframes fade-in-right {
     0% {
@@ -36,7 +36,7 @@
 }
 
 @mixin fade-in-left {
-  animation: fade-in-left 0.6s linear forwards;
+  animation: fade-in-left 1s ease-in-out forwards;
 
   @keyframes fade-in-left {
     0% {
@@ -51,7 +51,7 @@
 }
 
 @mixin fade-in {
-  animation: fade-in 0.6s linear forwards;
+  animation: fade-in 1s linear forwards;
 
   @keyframes fade-in {
     0% {

@@ -28,7 +28,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// Collect Elements
 
 function scrollTrigger(selector, options = {}) {
   const elements = Array.from(document.querySelectorAll(selector));
@@ -56,5 +55,8 @@ scrollTrigger('.landing-wrapper', {
     rootMargin: '-200px',
 })
 scrollTrigger('.section-heading', {
+    rootMargin: '-200px',
+})
+scrollTrigger('.feature', {
     rootMargin: '-200px',
 })
