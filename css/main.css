@@ -26,6 +26,16 @@ li {
   list-style: none;
 }
 
+input {
+  outline: none;
+  border: none;
+}
+
+textarea {
+  outline: none;
+  border: none;
+}
+
 .container {
   padding: 0 15px;
   margin: 0 auto;
@@ -99,7 +109,6 @@ body {
   color: #333;
   font-size: 16px;
   font-family: 'Cairo', sans-serif;
-  height: 3000px;
 }
 
 header.page-header {
@@ -109,7 +118,7 @@ header.page-header {
   top: 0;
   width: 100%;
   z-index: 999;
-  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.4s ease-out;
 }
 
 header.page-header.active {
@@ -121,7 +130,7 @@ header.page-header .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.4s ease-out;
 }
 
 header.page-header .navbar .brand {
@@ -130,7 +139,7 @@ header.page-header .navbar .brand {
 }
 
 header.page-header .navbar .nav-list {
-  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.4s ease-out;
 }
 
 header.page-header .navbar .nav-list .nav-item {
@@ -141,7 +150,7 @@ header.page-header .navbar .nav-list .nav-item > a {
   padding: 12px 18px;
   border-radius: 0.8rem;
   color: #fff;
-  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.4s ease-out;
 }
 
 header.page-header .navbar .nav-list .nav-item > a:hover {
@@ -174,7 +183,7 @@ header.page-header .navbar .nav-list.show {
 header.page-header .navbar .nav-btn {
   display: none;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.4s ease-out;
 }
 
 header.page-header .navbar .nav-btn .line {
@@ -182,7 +191,7 @@ header.page-header .navbar .nav-btn .line {
   width: 28px;
   height: 3px;
   background-color: #fff;
-  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.4s ease-out;
 }
 
 header.page-header .navbar .nav-btn .line:not(:last-of-type) {
@@ -256,7 +265,7 @@ header.page-header .navbar .nav-btn.rotate .line:nth-of-type(3) {
   position: relative;
   z-index: 3;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.4s ease-out;
 }
 
 .landing .landing-wrapper > .landing-box > a::after {
@@ -286,7 +295,7 @@ header.page-header .navbar .nav-btn.rotate .line:nth-of-type(3) {
   background-color: #fff;
   border-radius: 1rem;
   z-index: -1;
-  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: all 0.4s ease-out;
 }
 
 .landing .landing-wrapper > .landing-box > a:hover {
@@ -415,7 +424,7 @@ header.page-header .navbar .nav-btn.rotate .line:nth-of-type(3) {
 
 .screen-shots-slider .dots {
   position: absolute;
-  bottom: -50px;
+  bottom: -30px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -448,6 +457,225 @@ header.page-header .navbar .nav-btn.rotate .line:nth-of-type(3) {
   .screen-shots-slider {
     width: 80%;
   }
+}
+
+#prices {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+#prices .prices-plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+}
+
+#prices .prices-plans .plan-card {
+  text-align: center;
+  padding: 0 0 20px;
+  transition: all 0.4s ease-out;
+}
+
+#prices .prices-plans .plan-card:hover {
+  box-shadow: 0px 0px 15px 0px rgba(10, 0, 0, 0.253);
+}
+
+#prices .prices-plans .plan-card .plan-title {
+  color: #333;
+  font-size: 1.5rem;
+}
+
+#prices .prices-plans .plan-card .price {
+  height: 200px;
+  width: 100%;
+  background-color: #FFC440;
+  color: #333;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+#prices .prices-plans .plan-card .price .subscribe-duration {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 15px;
+  background-color: #FF4C00;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #fff;
+}
+
+#prices .prices-plans .plan-card .plan-features {
+  margin-bottom: 20px;
+}
+
+#prices .prices-plans .plan-card .plan-features > li {
+  padding: 15px 0;
+  color: #333;
+}
+
+#prices .prices-plans .plan-card > a {
+  display: inline-block;
+  padding: 8px 15px;
+  border: 1px solid #FF4C00;
+  border-radius: 5px;
+  color: #FF4C00;
+  transition: all 0.4s ease-out;
+}
+
+#prices .prices-plans .plan-card > a:hover {
+  color: #fff;
+  background-color: #FF4C00;
+}
+
+@media screen and (max-width: 992px) {
+  #prices .prices-plans {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 50px;
+  }
+}
+
+@media screen and (max-width: 567px) {
+  #prices .prices-plans {
+    grid-template-columns: 1fr;
+  }
+}
+
+#contact {
+  padding: 100px 0;
+  background-color: #333;
+  color: #fff;
+}
+
+#contact .section-title {
+  color: #fff;
+}
+
+#contact .section-title::before {
+  background-color: #fff;
+}
+
+#contact .section-description {
+  color: #fff;
+}
+
+#contact .contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#contact .contact-wrapper > form, #contact .contact-wrapper div {
+  width: 33.333%;
+  padding: 10px;
+}
+
+#contact .contact-wrapper > form > input, #contact .contact-wrapper > form textarea {
+  width: 100%;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+#contact .contact-wrapper > form > input {
+  margin-bottom: 20px;
+}
+
+#contact .contact-wrapper > form input::placeholder, #contact .contact-wrapper > form textarea::placeholder {
+  font-family: "Cairo", sans-serif;
+}
+
+#contact .contact-wrapper .map-location > iframe {
+  transform: skewY(5.5deg);
+}
+
+#contact .contact-wrapper .contact-data > h2 {
+  font-size: 1.6rem;
+}
+
+#contact .contact-wrapper .contact-data > span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+#contact .contact-wrapper .contact-data > span:last-of-type > a {
+  color: #FF4C00;
+}
+
+#contact .contact-wrapper .contact-data > span:last-of-type > a:hover {
+  text-decoration: underline;
+}
+
+#contact .contact-wrapper .contact-data > a {
+  color: #FF4C00;
+  font-size: 14px;
+}
+
+#contact .contact-wrapper .contact-data > a > i {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+#contact .contact-wrapper .contact-data > a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+  #contact .contact-wrapper > form, #contact .contact-wrapper div {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+}
+
+#contact .contact-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 100px;
+}
+
+#contact .contact-links > li {
+  margin: 0 5px;
+}
+
+#contact .contact-links > li > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border: 1px solid #fff;
+  color: #fff;
+  opacity: 0.4;
+  border-radius: 4px;
+  transition: all 0.4s ease-out;
+}
+
+#contact .contact-links > li > a:hover {
+  opacity: 1;
+}
+
+#footer {
+  background-color: #333;
+}
+
+#footer > p {
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+#footer > p > a {
+  color: #FF4C00;
+}
+
+#footer > p > a:hover {
+  text-decoration: underline;
 }
 
 .loading {
