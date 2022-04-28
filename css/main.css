@@ -588,6 +588,22 @@ header.page-header .navbar .nav-btn.rotate .line:nth-of-type(3) {
   font-family: "Cairo", sans-serif;
 }
 
+#contact .contact-wrapper > form > button[type="submit"] {
+  padding: 10px 60px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+}
+
+#contact .contact-wrapper > form > button[type="submit"]:hover {
+  border-color: #FF4C00;
+  background-color: #FF4C00;
+}
+
 #contact .contact-wrapper .map-location > iframe {
   transform: skewY(5.5deg);
 }

@@ -491,6 +491,20 @@ header.page-header {
             input::placeholder, textarea::placeholder {
                 font-family: "Cairo", sans-serif;
             } 
+            > button[type="submit"] {
+                padding: 10px 60px;
+                border: 1px solid #fff;
+                background-color: transparent;
+                color: #fff;
+                border-radius: 4px;
+                margin-top: 20px;
+                cursor: pointer;
+                @include main-transition();
+                &:hover {
+                    border-color: $primary-color;
+                    background-color: $primary-color;
+                }
+            }
             
         }
         .map-location {
