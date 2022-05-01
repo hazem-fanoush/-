@@ -29,7 +29,6 @@ window.addEventListener("scroll", () => {
 });
 
 // Screen shots slide show
-
 const slidesContainer = document.querySelector(".screen-shots-slider"),
   slides = Array.from(document.querySelectorAll(".slide")),
   dots = Array.from(document.querySelectorAll(".dot"));
@@ -47,3 +46,7 @@ dots.forEach((dot, index) => {
 
   });
 });
+
+// Loading
+const loading = document.querySelector('.loading');
+window.addEventListener('load', () => loading.style.display = "none");

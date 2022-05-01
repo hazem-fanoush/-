@@ -510,6 +510,7 @@ header.page-header {
         .map-location {
             > iframe {
                 transform: skewY(5.5deg);
+                max-height: 250px;
             }
         }
         .contact-data {
@@ -601,7 +602,7 @@ header.page-header {
     left: 0;
     width: 100%;
     height: 100vh;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: $background-color;
